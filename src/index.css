@@ -202,3 +202,20 @@ body{
       ;
   }
 }
+
+
+.edit_movie input[type="text"],
+.edit_movie textarea{
+    display: block;
+    margin: 0 auto;
+    background-color: #f6f7f9;
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 5px;
+    color: #454545;
+            width: 90%;
+    opacity: 4;
+    outline: 0;
+    border-color: transparent;
+
+}

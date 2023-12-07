@@ -16,7 +16,7 @@ function App() {
 
       <MainContent moviesList={moviesList} setMoviesList={setMoviesList}></MainContent>
 
-    <LateralComponent setMoviesList={setMoviesList}></LateralComponent>
+    <LateralComponent setMoviesList={setMoviesList} moviesList={moviesList}></LateralComponent>
       
      <FooterComponent></FooterComponent>
       

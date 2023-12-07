@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { EditComponent } from './EditComponent';
 
 export const MainContent = ({moviesList,setMoviesList}) => {
+    const [movieId,setMovieId] = useState(0)
     useEffect(() => {
         getMovies();
     }, [])
@@ -34,7 +36,17 @@ export const MainContent = ({moviesList,setMoviesList}) => {
                                     <p className="movie-description">
                                         {movie.description}
                                     </p>
-                                    <button className="edit">Edit</button> <button className="delete" onClick={ () => deleteMovie(movie.id)} >Delete</button>
+                                    <button className="edit" onClick={ ()=> setMovieId(movie.id) } >Edit</button> 
+                                    <button className="delete" onClick={ () => deleteMovie(movie.id)} >Delete</button>
+
+                                    {movieId == movie.id && (
+                                        <EditComponent movie={movie} 
+                                        getMovies={getMovies}
+                                        setMovieId={setMovieId}
+                                        setMoviesList={setMoviesList}
+                                        ></EditComponent>
+                                    )}
+
                                 </div>
                             )
                     })}
