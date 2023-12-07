@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export const AddComponent = () => {
+export const AddComponent = ({setMoviesList}) => {
     const [movie, setMovie] = useState();
 
     const getNewMovie = (e) =>{
@@ -25,7 +25,7 @@ export const AddComponent = () => {
         }
 
         localStorage.setItem("movies", JSON.stringify(elements));
-
+        setMoviesList(elements);
         return movie;
     }
     return (

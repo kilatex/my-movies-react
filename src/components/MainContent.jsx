@@ -1,62 +1,34 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-export const MainContent = () => {
-    
-    const getMovies = () =>{
+export const MainContent = ({moviesList,setMoviesList}) => {
+    useEffect(() => {
+        getMovies();
+    }, [])
+
+    const getMovies = () => {
         const movies = JSON.parse(localStorage.getItem('movies'));
-        console.log('movies');
+        setMoviesList(movies);
     }
+
+  
 
     return (
 
         <>
             {/* <!-- Main Content --> */}
             <div className="content">
-                <div className="movie-item">
-                    <h3 className="movie-title"> Movie Name</h3>
-                    <p className="movie-description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem autem asperiores, temporibus
-                        necessitatibus culpa blanditiis modi voluptate corporis eos ad impedit earum cum aliquam dignissimos
-                        tenetur voluptas quas aspernatur sit?
-                    </p>
-                    <button className="edit">Edit</button> <button className="delete">Delete</button>
-                </div>
-                <div className="movie-item">
-                    <h3 className="movie-title"> Movie Name</h3>
-                    <p className="movie-description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem autem asperiores, temporibus
-                        necessitatibus culpa blanditiis modi voluptate corporis eos ad impedit earum cum aliquam dignissimos
-                        tenetur voluptas quas aspernatur sit?
-                    </p>
-                    <button className="edit">Edit</button> <button className="delete">Delete</button>
-                </div>
-                <div className="movie-item">
-                    <h3 className="movie-title"> Movie Name</h3>
-                    <p className="movie-description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem autem asperiores, temporibus
-                        necessitatibus culpa blanditiis modi voluptate corporis eos ad impedit earum cum aliquam dignissimos
-                        tenetur voluptas quas aspernatur sit?
-                    </p>
-                    <button className="edit">Edit</button> <button className="delete">Delete</button>
-                </div>
-                <div className="movie-item">
-                    <h3 className="movie-title"> Movie Name</h3>
-                    <p className="movie-description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem autem asperiores, temporibus
-                        necessitatibus culpa blanditiis modi voluptate corporis eos ad impedit earum cum aliquam dignissimos
-                        tenetur voluptas quas aspernatur sit?
-                    </p>
-                    <button className="edit">Edit</button> <button className="delete">Delete</button>
-                </div>
-                <div className="movie-item">
-                    <h3 className="movie-title"> Movie Name</h3>
-                    <p className="movie-description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem autem asperiores, temporibus
-                        necessitatibus culpa blanditiis modi voluptate corporis eos ad impedit earum cum aliquam dignissimos
-                        tenetur voluptas quas aspernatur sit?
-                    </p>
-                    <button className="edit">Edit</button> <button className="delete">Delete</button>
-                </div>
+           {    
+                    moviesList.map(movie => {
+                        return(
+                            <div className="movie-item" key={movie.id}>
+                                <h3 className="movie-title"> {movie.title}</h3>
+                                <p className="movie-description">
+                                    {movie.description}
+                                </p>
+                                <button className="edit">Edit</button> <button className="delete">Delete</button>
+                            </div>
+                        )
+                })}
 
             </div></>
     )
