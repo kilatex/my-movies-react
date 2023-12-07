@@ -1,6 +1,12 @@
 import React from 'react'
 
 export const MainContent = () => {
+    
+    const getMovies = () =>{
+        const movies = JSON.parse(localStorage.getItem('movies'));
+        console.log('movies');
+    }
+
     return (
 
         <>
