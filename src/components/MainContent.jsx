@@ -64,3 +64,5 @@ export const MainContent = ({moviesList,setMoviesList}) => {
     }
    
 }
+
+
